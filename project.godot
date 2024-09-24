@@ -10,15 +10,24 @@ config_version=5
 
 [application]
 
-config/name="EndOfTheLastWar"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/name="n-u-t"
+run/main_scene="res://bootstrap/bootstrap.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
-[dotnet]
+[autoload]
 
-project/assembly_name="EndOfTheLastWar"
+GodotLogger="*res://addons/logger/logger.gd"
+LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg", "res://addons/logger/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localizations.de.translation", "res://localization/localizations.en.translation", "res://localization/localizations.ru.translation")
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
