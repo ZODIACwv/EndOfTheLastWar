@@ -21,6 +21,13 @@ ModLoader="*res://addons/mod_loader/mod_loader.gd"
 GodotLogger="*res://addons/logger/logger.gd"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+
 [dotnet]
 
 project/assembly_name="EndOfTheLastWar"
