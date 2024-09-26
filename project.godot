@@ -29,6 +29,10 @@ project/assembly_name="EndOfTheLastWar"
 
 enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg", "res://addons/logger/plugin.cfg")
 
+[gui]
+
+theme/custom="res://resources/themes/main_theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
