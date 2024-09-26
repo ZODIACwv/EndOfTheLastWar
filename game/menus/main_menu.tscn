@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvrtmo2ugpplp"]
+[gd_scene load_steps=6 format=3 uid="uid://cm2a1jxgmsud3"]
 
-[ext_resource type="PackedScene" uid="uid://dwlpxwggqth40" path="res://game/menus/menu_bg.tscn" id="1_kbsr1"]
+[ext_resource type="PackedScene" uid="uid://480ebv3aqx5j" path="res://game/menus/menu_bg.tscn" id="1_kbsr1"]
 [ext_resource type="Texture2D" uid="uid://bafclw41in45y" path="res://assets/sprites/backgrounds/image2.png" id="2_spdci"]
 [ext_resource type="Texture2D" uid="uid://cavgcxf2goum8" path="res://assets/sprites/player/interface/button_panel.png" id="3_bbhfv"]
 [ext_resource type="Theme" uid="uid://d0trhxkfrj6sl" path="res://resources/themes/main_theme.tres" id="4_oygq8"]

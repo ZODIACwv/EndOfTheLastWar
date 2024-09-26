@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwlpxwggqth40"]
+[gd_scene load_steps=4 format=3 uid="uid://480ebv3aqx5j"]
 
 [ext_resource type="Texture2D" uid="uid://ddoy0tklp685d" path="res://assets/sprites/backgrounds/art1.jpg" id="1_4r57j"]
+[ext_resource type="PackedScene" uid="uid://cobarkr06vxdt" path="res://game/menus/profiles_menu.tscn" id="2_qqmym"]
+
+[sub_resource type="GDScript" id="GDScript_rj85o"]
+script/source = "extends CanvasLayer
+"
 
 [node name="MenuBackground" type="CanvasLayer"]
-layer = 100
+layer = 0
+script = SubResource("GDScript_rj85o")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -27,3 +33,12 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
+
+[node name="ProfilesMenu" parent="." instance=ExtResource("2_qqmym")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2

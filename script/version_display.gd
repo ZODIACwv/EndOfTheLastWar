@@ -7,9 +7,6 @@ func _init() -> void:
 	self.layer = 100
 	add_child(label)
 	
-	#label.custom_minimum_size = Vector2(160, 40)
-	#label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	#label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.set("theme_override_constants/outline_size", 4)
 	label.set("theme_override_colors/font_outline_color", Color("2c1700c8"))
 	label.set("theme_override_colors/font_color", Color("e88d00"))
@@ -17,7 +14,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var version_text: String = "%d.%d.%d %s" %\
+	var version_text: String = "v%d.%d.%d %s" %\
 		[
 			ProjectSettings.get_setting("Game/dev/version/major", 0),
 			ProjectSettings.get_setting("Game/dev/version/minor", 0),

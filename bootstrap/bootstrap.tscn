@@ -6,7 +6,7 @@ extends Node
 
 
 func _ready() -> void:
-	get_tree().call_deferred('change_scene_to_file', \"res://game/menus/main_menu.tscn\")
+	get_tree().call_deferred('change_scene_to_file', \"res://game/menus/menu.tscn\")
 "
 
 [node name="Bootstrap" type="Node"]
