@@ -1,0 +1,154 @@
+[gd_scene load_steps=5 format=3 uid="uid://hytkddd7himf"]
+
+[ext_resource type="Texture2D" uid="uid://cavgcxf2goum8" path="res://assets/sprites/player/interface/button_panel.png" id="2_tq8ib"]
+[ext_resource type="Theme" uid="uid://d0trhxkfrj6sl" path="res://resources/themes/main_theme.tres" id="3_w83te"]
+
+[sub_resource type="GDScript" id="GDScript_uprf4"]
+script/source = "extends GameMenu
+
+signal pressed_new_game
+signal pressed_continue
+signal pressed_profile
+signal pressed_settings
+signal pressed_help
+signal pressed_mods
+
+
+func _pressed_exit():
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8uw2d"]
+texture = ExtResource("2_tq8ib")
+expand_margin_left = 8.0
+expand_margin_top = 6.0
+expand_margin_right = 8.0
+expand_margin_bottom = 6.0
+region_rect = Rect2(4, 8, 1236, 234)
+modulate_color = Color(1, 1, 1, 0)
+
+[node name="NavigateMenu" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_uprf4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GameNamePanel" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_8uw2d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/GameNamePanel"]
+layout_mode = 2
+
+[node name="GameNameLabel" type="Label" parent="HBoxContainer/GameNamePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.908767, 0.552744, 1.34766e-06, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.0901961, 0, 0.784314)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 42
+text = "End Of The Last War"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GameVersionLabel" type="Label" parent="HBoxContainer/GameNamePanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "v. 0.0.0 (in dev)
+"
+horizontal_alignment = 2
+
+[node name="empty_space" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Continue" type="Button" parent="HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+text = "New Game"
+
+[node name="Profiles" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+text = "Profiles
+"
+
+[node name="Settings" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+disabled = true
+text = "Settings
+"
+
+[node name="Help" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+disabled = true
+text = "Help"
+
+[node name="Mods" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+disabled = true
+text = "Mods"
+
+[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("3_w83te")
+theme_type_variation = &"MenuButton"
+text = "Exit"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Continue" to="." method="emit_signal" binds= ["pressed_continue"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/NewGame" to="." method="emit_signal" binds= ["pressed_new_game"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Profiles" to="." method="emit_signal" binds= ["pressed_profile"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Settings" to="." method="emit_signal" binds= ["pressed_settings"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Exit" to="." method="_pressed_exit"]

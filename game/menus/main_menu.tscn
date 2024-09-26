@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm2a1jxgmsud3"]
+
+[ext_resource type="PackedScene" uid="uid://480ebv3aqx5j" path="res://game/menus/menu_bg.tscn" id="1_kbsr1"]
+[ext_resource type="Texture2D" uid="uid://bafclw41in45y" path="res://assets/sprites/backgrounds/image2.png" id="2_spdci"]
+[ext_resource type="Texture2D" uid="uid://cavgcxf2goum8" path="res://assets/sprites/player/interface/button_panel.png" id="3_bbhfv"]
+[ext_resource type="Theme" uid="uid://d0trhxkfrj6sl" path="res://resources/themes/main_theme.tres" id="4_oygq8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cc2ag"]
+texture = ExtResource("3_bbhfv")
+expand_margin_left = 8.0
+expand_margin_top = 6.0
+expand_margin_right = 8.0
+expand_margin_bottom = 6.0
+region_rect = Rect2(4, 8, 1236, 234)
+modulate_color = Color(1, 1, 1, 0)
+
+[node name="MainMenu" instance=ExtResource("1_kbsr1")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_spdci")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GameNamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(220, 72)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_cc2ag")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/GameNamePanel" index="0"]
+layout_mode = 2
+
+[node name="GameNameLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.908767, 0.552744, 1.34766e-06, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.0901961, 0, 0.784314)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 42
+text = "End Of The Last War"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GameVersionLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel/VBoxContainer" index="1"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+text = "v. 0.0.0 (in dev)
+"
+horizontal_alignment = 2
+
+[node name="empty_space" type="Control" parent="MarginContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+
+[node name="Control2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+theme_type_variation = &"MenuButton"
+text = "New Game"
+
+[node name="Profiles" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+theme_type_variation = &"MenuButton"
+text = "Profiles
+"
+
+[node name="Help" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="5"]
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+theme_type_variation = &"MenuButton"
+text = "Help"
+
+[node name="Mods" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="6"]
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+theme_type_variation = &"MenuButton"
+text = "Mods"
+
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="7"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 7
+focus_mode = 0
+theme = ExtResource("4_oygq8")
+theme_type_variation = &"MenuButton"
+text = "Exit"
