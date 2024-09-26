@@ -1,94 +1,71 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvrtmo2ugpplp"]
 
-[ext_resource type="Script" path="res://game/menus/main_menu.gd" id="1_wh60a"]
+[ext_resource type="PackedScene" uid="uid://dwlpxwggqth40" path="res://game/menus/menu_bg.tscn" id="1_kbsr1"]
 [ext_resource type="Texture2D" uid="uid://n0a0m3bh8kp" path="res://assets/sprites/backgrounds/art6.jpg" id="1_xxyb4"]
 
-[node name="MainMenu" type="CanvasLayer"]
-layer = 100
-script = ExtResource("1_wh60a")
+[node name="MainMenu" instance=ExtResource("1_kbsr1")]
 
-[node name="Background" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" parent="." index="0"]
 texture = ExtResource("1_xxyb4")
-expand_mode = 1
-stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
 layout_mode = 2
-theme_override_constants/separation = 256
+theme_override_constants/separation = 0
 
-[node name="GameNamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(0, 72)
+[node name="GameNamePanel" type="PanelContainer" parent="MarginContainer/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(220, 72)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="GameNameLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/GameNamePanel" index="0"]
+layout_mode = 2
+
+[node name="GameNameLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "End Of The Last War"
 horizontal_alignment = 1
+autowrap_mode = 3
 
-[node name="GameVersionLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel"]
+[node name="GameVersionLabel" type="Label" parent="MarginContainer/HBoxContainer/GameNamePanel/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "v. 0.0.0 (in dev)
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="empty_space" type="Control" parent="MarginContainer/HBoxContainer" index="1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" index="2"]
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Continue" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 7
 text = "Continue"
 
-[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 7
 text = "New Game"
 
-[node name="Help" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+[node name="Help" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="2"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 7
 text = "Help"
 
-[node name="Mods" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+[node name="Mods" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="3"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 7
 text = "Mods"
 
-[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 120)
+[node name="Exit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" index="4"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 7
 text = "Exit"
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Mods" to="." method="_on_mods_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
