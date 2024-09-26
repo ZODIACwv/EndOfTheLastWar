@@ -8,6 +8,13 @@
 
 config_version=5
 
+[Game]
+
+dev/version/major=0
+dev/version/minor=0
+dev/version/patch=0
+dev/version/suffix="{in dev}"
+
 [application]
 
 config/name="EndOfTheLastWar"
@@ -21,6 +28,7 @@ ModLoaderStore="*res://addons/mod_loader/mod_loader_store.gd"
 ModLoader="*res://addons/mod_loader/mod_loader.gd"
 GodotLogger="*res://addons/logger/logger.gd"
 LocalizationManager="*res://addons/localization_editor/LocalizationManager.gd"
+VersionDisplay="*res://script/version_display.gd"
 
 [display]
 
