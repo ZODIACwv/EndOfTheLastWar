@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkawaoukw8ax8"]
+
+[ext_resource type="PackedScene" uid="uid://dwlpxwggqth40" path="res://game/menus/menu_bg.tscn" id="1_dyjpm"]
+[ext_resource type="Texture2D" uid="uid://beydq3mpv04o5" path="res://assets/sprites/backgrounds/new_game.jpg" id="2_lbcui"]
+
+[node name="NewGame" instance=ExtResource("1_dyjpm")]
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_lbcui")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2" index="0"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 10
+text = "Create"
