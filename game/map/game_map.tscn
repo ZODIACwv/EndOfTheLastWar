@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy3rcjcvphwi4"]
+
+[ext_resource type="PackedScene" uid="uid://cv4lfukvhg20w" path="res://game/map/level.tscn" id="1_15rit"]
+[ext_resource type="PackedScene" uid="uid://db6nhdlncueuu" path="res://game/map/character.tscn" id="2_1ebat"]
+
+[node name="GameMap" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_15rit")]
+
+[node name="Character" parent="." instance=ExtResource("2_1ebat")]

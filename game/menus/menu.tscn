@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbptyhvvcv4l4"]
+[gd_scene load_steps=8 format=3 uid="uid://cbptyhvvcv4l4"]
 
 [ext_resource type="Texture2D" uid="uid://ddoy0tklp685d" path="res://assets/sprites/backgrounds/art1.jpg" id="1_elfbq"]
 [ext_resource type="PackedScene" uid="uid://cobarkr06vxdt" path="res://game/menus/profiles_menu.tscn" id="2_514wn"]
@@ -22,7 +22,7 @@ var _showed := 0
 
 func _ready() -> void:
 	for menu in get_children():
-		if menu == background: continue
+		if menu == background or menu is not GameMenu: continue
 		menu.hide()
 	
 	change_menu(1)
@@ -39,6 +39,14 @@ func change_menu(menu_index: int):
 		background.texture = _menu.bg_texture
 	
 	_showed = menu_index
+"
+
+[sub_resource type="GDScript" id="GDScript_mfnko"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	self.text = \"FPS %d\" % [Engine.get_frames_per_second()]
 "
 
 [node name="Menu" type="CanvasLayer"]
@@ -97,6 +105,13 @@ theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="."]
+offset_right = 54.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "FPS"
+script = SubResource("GDScript_mfnko")
 
 [connection signal="pressed_new_game" from="NavigateMenu" to="." method="change_menu" binds= [2]]
 [connection signal="pressed_profile" from="NavigateMenu" to="." method="change_menu" binds= [3]]
