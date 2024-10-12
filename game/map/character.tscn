@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://db6nhdlncueuu"]
+
+[ext_resource type="Script" path="res://addons/shape_texture_2d/shape_texture_2d.gd" id="1_efaci"]
+[ext_resource type="Script" path="res://addons/shape_texture_2d/drawable_ellipse.gd" id="2_qluyg"]
+
+[sub_resource type="Resource" id="Resource_a1kpo"]
+script = ExtResource("2_qluyg")
+
+[sub_resource type="Texture2D" id="Texture2D_yui3y"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_efaci")
+size = Vector2i(128, 128)
+shape = SubResource("Resource_a1kpo")
+fill_type = 0
+fill_color = Color(0.596078, 0, 1, 1)
+fill_from = Vector2(0, 0)
+fill_to = Vector2(1, 0)
+fill_repeat = "pad"
+stroke_type = 0
+stroke_width = 0.0
+stroke_color = Color(0, 0, 0, 1)
+stroke_from = Vector2(0, 0)
+stroke_to = Vector2(1, 0)
+stroke_repeat = "pad"
+stroke_joint = "round"
+offset = Vector2(0, 0)
+rotation = 0.0
+scale = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu66d"]
+radius = 63.0317
+
+[node name="Character" type="CharacterBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("Texture2D_yui3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gu66d")
