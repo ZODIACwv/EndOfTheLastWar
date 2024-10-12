@@ -18,7 +18,7 @@ dev/version/suffix="{in dev}"
 [application]
 
 config/name="EndOfTheLastWar"
-run/main_scene="res://bootstrap/bootstrap.tscn"
+run/main_scene="res://scene/bootstrap.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -43,11 +43,20 @@ project/assembly_name="EndOfTheLastWar"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/localization_editor/plugin.cfg", "res://addons/logger/plugin.cfg")
+enabled=PackedStringArray("res://addons/SpritesheetGenerator/plugin.cfg", "res://addons/localization_editor/plugin.cfg", "res://addons/logger/plugin.cfg")
 
 [gui]
 
 theme/custom="res://resources/themes/main_theme.tres"
+
+[importer_defaults]
+
+texture_atlas={
+"atlas_file": "res://assets/sprites/player/inventory/inventory_cell.png",
+"crop_to_region": false,
+"import_mode": 0,
+"trim_alpha_border_from_region": true
+}
 
 [rendering]
 
