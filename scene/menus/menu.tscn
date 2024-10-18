@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbptyhvvcv4l4"]
+[gd_scene load_steps=10 format=3 uid="uid://cbptyhvvcv4l4"]
 
+[ext_resource type="Shader" path="res://scene/menus/menu.gdshader" id="1_84usc"]
 [ext_resource type="Texture2D" uid="uid://ddoy0tklp685d" path="res://assets/sprites/backgrounds/art1.jpg" id="1_elfbq"]
 [ext_resource type="PackedScene" uid="uid://cobarkr06vxdt" path="res://scene/menus/profiles_menu.tscn" id="2_514wn"]
 [ext_resource type="PackedScene" uid="uid://hytkddd7himf" path="res://scene/menus/navigate_menu.tscn" id="2_ddy6y"]
@@ -48,6 +49,10 @@ script/source = "extends Label
 func _process(delta: float) -> void:
 	self.text = \"FPS %d\" % [Engine.get_frames_per_second()]
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jtqj"]
+shader = ExtResource("1_84usc")
+shader_parameter/fisheye_strength = 1.0
 
 [node name="Menu" type="CanvasLayer"]
 layer = 0
@@ -112,6 +117,15 @@ offset_bottom = 45.0
 theme_override_font_sizes/font_size = 32
 text = "FPS"
 script = SubResource("GDScript_mfnko")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_1jtqj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed_new_game" from="NavigateMenu" to="." method="change_menu" binds= [2]]
 [connection signal="pressed_profile" from="NavigateMenu" to="." method="change_menu" binds= [3]]
