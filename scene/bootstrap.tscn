@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://n6pyyjsdqdd"]
+[gd_scene load_steps=3 format=3 uid="uid://n6pyyjsdqdd"]
+
+[ext_resource type="Texture2D" uid="uid://cck7swq5ugv7f" path="res://assets/sprites/backgrounds/art7.jpg" id="1_ykcux"]
 
 [sub_resource type="GDScript" id="GDScript_8ew5s"]
 script/source = "#Bootstrap Scripte
@@ -11,3 +13,11 @@ func _ready() -> void:
 
 [node name="Bootstrap" type="Node"]
 script = SubResource("GDScript_8ew5s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ykcux")

@@ -19,7 +19,7 @@ dev/version/suffix="{in dev}"
 
 config/name="EndOfTheLastWar"
 run/main_scene="res://scene/bootstrap.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 run/max_fps=120
 config/icon="res://icon.svg"
 

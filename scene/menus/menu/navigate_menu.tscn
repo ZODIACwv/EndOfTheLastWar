@@ -28,8 +28,8 @@ region_rect = Rect2(4, 8, 1236, 234)
 modulate_color = Color(1, 1, 1, 0)
 
 [node name="NavigateMenu" type="MarginContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 440.0
+offset_bottom = 451.0
 script = SubResource("GDScript_uprf4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -47,6 +47,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_8uw2d")
 layout_mode = 2
 
 [node name="GameNameLabel" type="Label" parent="HBoxContainer/GameNamePanel/VBoxContainer"]
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.908767, 0.552744, 1.34766e-06, 1)
@@ -59,15 +60,20 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="GameVersionLabel" type="Label" parent="HBoxContainer/GameNamePanel/VBoxContainer"]
-visible = false
+custom_minimum_size = Vector2(220, 28)
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.908767, 0.552744, 1.34766e-06, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.0901961, 0, 0.784314)
+theme_override_constants/outline_size = 12
 theme_override_font_sizes/font_size = 20
-text = "v. 0.0.0 (in dev)
-"
-horizontal_alignment = 2
+text = "v 0.0.1{in dev}"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="empty_space" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
